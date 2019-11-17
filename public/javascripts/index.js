@@ -23,8 +23,10 @@ $('#login').click(()=>{
 			email: $('#email').val(),
 			password: $('#password').val()
 	})
-		.done((token)=>console.log(token))
-		.fail((e)=>{
+		.done((token) => {
+			window.location = '/';
+		})
+		.fail((e) => {
 			console.error(e.responseJSON.message);
 		});
 });
