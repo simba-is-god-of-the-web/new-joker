@@ -61,11 +61,11 @@ router.post('/login', async (req, res, next) => {
 
 	// check if the email exist
 	const user = await UserMoule.findOne({email: req.body.email});
-	if(!user) return res.status(400).send('Email is not found');
+	if(!user) return res.status(401).send({message: 'Email is not found'});
 
 	// check password is correct
 	const validPass = await bcrypt.compare(req.body.password, user.password)
-	if(!validPass) return res.status(400).send('Invalid password');
+	if(!validPass) return res.status(400).send({message: 'Invalid password'});
 
 	// create a token
 	const token = jwt.sign({_id: user._id}, process.env.TOKEN_SCRETE);
@@ -73,7 +73,6 @@ router.post('/login', async (req, res, next) => {
 
 	
 
-	res.send('Logged in');
 });
 
 module.exports = router;

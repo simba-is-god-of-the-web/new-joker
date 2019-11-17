@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+	<head>
+		<meta charset="UTF-8">
+		<title>IZCC Joker</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/room.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
+	</head>
+	<body>
+		<h1>抽鬼牌</h1>
+		<hr>
+		<div id="infor">
+			<h2>username: <%= username %></h2>
+			<h3>id: <%= id %></h3>
+		</div>
+		<div id="playground">
+			<!--
+			<canvas id="canvas">Sorry your browser don't support canvas. Use firefox instead</canvas>
+			-->
+			<div class="card">
+				<h1 class="suit suit-positive">♠</h1> 
+				<h1 class="number">A</h3>
+				<h1 class="suit suit-negative">♠</h1> 
+			</div>
+		</div>
+		<script src="/script/jquery-3.4.1.js"></script>
+		<script src="/script/jquery-poker.js"></script>
+		<script src="/script/script.js"></script>
+	</body>
+</html>

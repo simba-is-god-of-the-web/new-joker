@@ -1,0 +1,41 @@
+body {
+	height: 70vh;
+}
+
+#playground, #canvas {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card {
+	border: 10px;
+	background-color: #bbbbbb;
+	margin: 10px;
+	padding: 10px;
+	height: 300px;
+	width: 190px;
+	border-radius: 10px;
+	position: relative;
+	font-family: 'Supermercado One', cursive;
+}
+
+.suit, .number{
+	position: absolute;
+	font-size: 100px;
+}
+.suit-positive{
+	top: -5%;
+	left: -3%;
+}
+.suit-negative {
+	top: 55%;
+	left: 50%;
+	transform: rotate(-180deg);
+}
+
+.number {
+	top: 30%;
+	left: 30%;
+}

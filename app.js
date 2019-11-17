@@ -9,7 +9,8 @@ const auth = require('./auth/auth.js');
 const verify = require('./auth/verifyToken.js');
 
 // route
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index.js');
+const testRouter = require('./routes/test.js');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/auth', auth);
+app.use('/test', testRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
