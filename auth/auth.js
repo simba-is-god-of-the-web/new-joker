@@ -5,6 +5,13 @@ const Joi = require('@hapi/joi');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+// cookie setup
+const cookieSetUP = {
+	path: '/',
+	signed: true,
+	maxAge: 600000
+};
+
 // config env
 require('dotenv').config();
 
@@ -69,7 +76,12 @@ router.post('/login', async (req, res, next) => {
 
 	// create a token
 	const token = jwt.sign({_id: user._id}, process.env.TOKEN_SCRETE);
-	res.header('auth-token', token).send(token);
+	res
+		.header('auth-token', token)
+		.cookie('auth-token', token, cookieSetUP)
+		.cookie('name', req.body.name, cookieSetUP)
+		.cookie('email', req.body.body, cookieSetUP)
+		.send(token);
 
 	
 

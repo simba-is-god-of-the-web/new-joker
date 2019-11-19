@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 function auth(req, res, next){
-	const token = req.header('auth-token');
+	const token = req.signedCookies['auth-token'];
+	console.log(token);
 	if(!token) return res.status(401).send('Access Denied');
 
 	// verify token
