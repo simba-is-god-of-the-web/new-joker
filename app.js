@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const socketIO = require("socket.io");
 
 // auth
 const auth = require('./auth/auth.js');
@@ -11,8 +12,10 @@ const verify = require('./auth/verifyToken.js');
 // route
 const indexRouter = require('./routes/index.js');
 const testRouter = require('./routes/test.js');
-
+const io = socketIO();
 const app = express();
+app.io = io;
+const wsRouter = require('./routes/wsrouter.js')(io);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
