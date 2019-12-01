@@ -62,10 +62,10 @@ router.post('/register', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
+	console.log("hello?")
 	//validate
 	const {error} = loginValidate(req.body);
 	if(error) return res.status(400).send(error.details[0]);
-
 	// check if the email exist
 	const user = await UserMoule.findOne({email: req.body.email});
 	if(!user) return res.status(401).send({message: 'Email is not found'});
