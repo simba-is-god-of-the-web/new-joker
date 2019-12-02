@@ -1,10 +1,16 @@
-module.exports = function(io) {
-    var app = require('express');
-    var router = app.Router();
 
+function wsrouter(io) {
+    var router = require('express').Router();
     io.on('connection', function(socket) { 
-        socket.emit("broadcast","new connection");
+        socket.emit("connection created!");
+    });
+    io.on('disconnect', function(socket) { 
+        socket.emit("disconnect");
     });
 
     return router;
 }
+
+
+
+module.exports = wsrouter;
