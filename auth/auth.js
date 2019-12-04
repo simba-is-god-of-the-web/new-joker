@@ -76,12 +76,12 @@ router.post('/login', async (req, res, next) => {
 	// create a token
 	const token = jwt.sign({_id: user._id}, process.env.TOKEN_SCRETE);
 	res
-		.header('auth-token', token)
-		.cookie('auth-token', token, cookieSetUP)
-		.cookie('name', req.body.name, cookieSetUP)
-		.cookie('email', req.body.body, cookieSetUP)
-		.send(token);
-
+	.header('auth-token', token)
+	.cookie('auth-token', token, cookieSetUP)
+	.cookie('name', user.name, cookieSetUP)
+	.cookie('email', req.body.body, cookieSetUP)
+	.send(token);
+	// res.redirect("/room")
 	
 
 });

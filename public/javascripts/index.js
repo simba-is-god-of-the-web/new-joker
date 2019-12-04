@@ -24,7 +24,7 @@ $('#login').click(()=>{
 			password: $('#password').val()
 	})
 		.done((token) => {
-			window.location = '/';
+			window.location = '/room';
 		})
 		.fail((e) => {
 			console.error(e.responseJSON.message);

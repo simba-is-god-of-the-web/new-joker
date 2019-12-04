@@ -1,10 +1,10 @@
 const uuid = require("uuid/v4")
 class Player{
-	constructor(ws, name){
-		if(ws && name){
+	constructor(name){
+		if(name){
 			this.id = `#${uuid()}`;
 			this.name = name || this.id;
-			this.ws = ws;
+			// this.ws = ws;
 			this.cards = [];
 		}else{
 			return new Error('Miss some argements');

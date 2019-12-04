@@ -15,9 +15,10 @@ const verify = require('./auth/verifyToken.js');
 // route
 const indexRouter = require('./routes/index.js');
 const testRouter = require('./routes/test.js');
-const io = socketIO();
 const loginRouter = require('./routes/login.js');
+const roomRoute = require('./routes/roomRoute.js');
 
+const io = socketIO();
 const app = express();
 app.io = io;
 const wsRouter = require('./routes/wsrouter.js')(io);
@@ -37,6 +38,7 @@ app.use('/login', loginRouter);
 app.use('/auth', auth);
 app.use('/test', testRouter);
 app.use('/ws',wsRouter);
+app.use('/room',roomRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
